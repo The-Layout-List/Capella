@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="/css/polaris.css?v=3" type="text/css" rel="stylesheet">
-    <link rel="icon" href="/assets/polaris.svg">
-    <title>Polaris</title>
+    <link href="/css/capella.css?v=3" type="text/css" rel="stylesheet">
+    <link rel="icon" href="/assets/capella.svg">
+    <title>Capella</title>
 
-    <meta property="og:title" content="Polaris">
+    <meta property="og:title" content="Capella">
     <meta property="og:description" content="An open-source XP bot">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#00ff80">
@@ -371,9 +371,9 @@
         
                         <select>
                             <option value="x" selected disabled>Member</option>
-                            <option value="[[@]]">@mention (e.g. @Polaris)</option>
-                            <option value="[[DISPLAYNAME]]">Display Name (e.g. Polaris)</option>
-                            <option value="[[USERNAME]]">Username (e.g. polaris)</option>
+                            <option value="[[@]]">@mention (e.g. @Capella)</option>
+                            <option value="[[DISPLAYNAME]]">Display Name (e.g. Capella)</option>
+                            <option value="[[USERNAME]]">Username (e.g. capella)</option>
                             <option value="[[ID]]">ID (e.g. 98341916...)</option>
                             <option value="[[NICKNAME]]">Nickname</option>
                             <option value="[[AVATAR]]">Avatar URL</option>
@@ -680,7 +680,7 @@
 
         <div class="settingBox box fulllength">
             <h2>Download XP</h2>
-            <p class="details" style="margin-bottom: 10px">Exports everyone's XP into a single file (only contains user ID and XP)<br><b>Download all data if you wish to import your settings into an open-source fork of Polaris.</b></p>
+            <p class="details" style="margin-bottom: 10px">Exports everyone's XP into a single file (only contains user ID and XP)<br><b>Download all data if you wish to import your settings into an open-source fork of Capella.</b></p>
             <button class="exportXP" format="everything" style="background-color: var(--emojipurple);">Download all data</button>
             <button class="exportXP" format="json" style="margin-left: 10px">Download as .json</button>
             <button class="exportXP" format="csv" style="margin-left: 10px">Download as .csv</button>
@@ -719,7 +719,7 @@
                 <h2 style="margin: 0px 0px">Import settings and XP from</h2>
                 <select id="importfrom" style="margin-left: 8px; width: 250px; font-weight: bold;" onchange="$('.importdiv').hide(); $(`.importdiv[importtype='${$(this).val()}']`).show()">
                     <option value="json">.json file</option>
-                    <option value="polaris">Another server</option>
+                    <option value="capella">Another server</option>
                 </select>
             </div>
 
@@ -749,7 +749,7 @@
                 </div>
             </div>
 
-            <div class="importdiv" importtype="polaris" style="display: none">
+            <div class="importdiv" importtype="capella" style="display: none">
                 <p class="details">Copies XP and settings from another server using this bot. <b>Requires server owner</b></p>
                 <p class="details"><b>Note:</b> Since you are transferring from another server, reward roles and multipliers cannot be copied</p>
                 <div class="centerflex spacedflex">
@@ -830,7 +830,7 @@
 
         <div class="settingBox box" style="height: 145px">
             <h2>Custom /top Embed Color</h2>
-            <p class="details">Changes the embed color when using /top.<br>Uses Polaris' green by default.</p>
+            <p class="details">Changes the embed color when using /top.<br>Uses Capella' green by default.</p>
             <div class="centerflex" style="height: 45px">
                 <label style="margin-top: 5px"; class="slider">
                     <input type="checkbox" tabindex="0" id="useCustomEmbedColTop" onchange="$('#customEmbedColTopConfig').toggle($(this).prop('checked')); checkUnsavedChanges()">
@@ -849,7 +849,7 @@
 
 </body>
 
-<script type="text/javascript" src="/polaris.js"></script>
+<script type="text/javascript" src="/capella.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135255146-1"></script>
 <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-135255146-1');</script>
@@ -1128,7 +1128,7 @@
 
         // extra info on home
         updateHomeInfo = function(data) {
-            $('p[cat="extra"][category="xp"]').text(data.enabled ? `Enabled! ${commafy(data["gain.min"])}${data["gain.min"] == data["gain.max"] ? "" : `-${commafy(data["gain.max"])}`} XP every ${commafy(data["gain.time"])}s` : "XP disabled!").css("color", data.enabled ? "var(--polarisgreen)" : "#ff6666")
+            $('p[cat="extra"][category="xp"]').text(data.enabled ? `Enabled! ${commafy(data["gain.min"])}${data["gain.min"] == data["gain.max"] ? "" : `-${commafy(data["gain.max"])}`} XP every ${commafy(data["gain.time"])}s` : "XP disabled!").css("color", data.enabled ? "var(--capellagreen)" : "#ff6666")
             $('p[cat="extra"][category="rewardroles"]').text(data.rewards.length ? addS(data.rewards.length, "reward role") : "No reward roles")
             $('p[cat="extra"][category="levelup"]').text(data["levelUp.enabled"] && data["levelUp.message"] ? `Enabled!${data["levelUp.embed"] ? " (embedded)" : ""}` : "Disabled")
             $('p[cat="extra"][category="multipliers"]').text(`${addS(data["multipliers.roles"].length, "role")}, ${addS(data["multipliers.channels"].length, "channel")}`)

@@ -27,7 +27,7 @@ const client = new Discord.Client({
 })
 
 if (!client.shard) {
-    console.error("No sharding info found!\nMake sure you start the bot from polaris.js, not index.js")
+    console.error("No sharding info found!\nMake sure you start the bot from capella.js, not index.js")
     return process.exit()
 }
 

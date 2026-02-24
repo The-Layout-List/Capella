@@ -11,7 +11,7 @@ async run(client, int, tools) {
     let settings = db.settings
     if (!tools.canManageServer(int.member, db.settings.manualPerms)) return tools.warn("*notMod")
 
-    let polarisSettings = [
+    let capellaSettings = [
         `**✨ XP enabled: __${settings.enabled ? "Yes!" : "No!"}__**`,
         `**XP per message:** ${settings.gain.min == settings.gain.max ? tools.commafy(settings.gain.min) : `${tools.commafy(settings.gain.min)} - ${tools.commafy(settings.gain.max)}`}`,
         `**XP cooldown:** ${tools.commafy(settings.gain.time)} ${tools.extraS("sec", settings.gain.time)}`,
@@ -25,7 +25,7 @@ async run(client, int, tools) {
         author: { name: "Settings for " + int.guild.name, iconURL: int.guild.iconURL() },
         footer: "Visit the online dashboard to change server settings",
         color: tools.COLOR, timestamp: true,
-        description: polarisSettings.join("\n")
+        description: capellaSettings.join("\n")
     })
 
     let toggleButton = settings.enabled ?

@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 
 // connect to database
 const uri = process.env.MONGO_DB_URI
-const dbName = process.env.MONGO_DB_NAME || "polaris"
+const dbName = process.env.MONGO_DB_NAME || "capella"
 const dbSettings = uri ? { dbName } : { dbName, user: process.env.MONGO_DB_USERNAME, pass: process.env.MONGO_DB_PASSWORD }
 
 mongoose.connect(uri || `mongodb://${process.env.MONGO_DB_IP}`, dbSettings)

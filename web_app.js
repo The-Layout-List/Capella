@@ -91,7 +91,7 @@ function clearDeletedData(settings, roles, channels) {
 
 app.use("/assets", express.static(__dirname + '/app/assets'));
 app.use("/css", express.static(__dirname + '/app/css'));
-app.use("/polaris.js", express.static(__dirname + '/app/js/extras.js'));
+app.use("/capella.js", express.static(__dirname + '/app/js/extras.js'));
 
 app.use(function(req, res, next) {
     res.apiError = function(message, code) {
@@ -525,7 +525,7 @@ app.post("/api/importfrombot", async function(req, res) {
     if (importCooldowns[importCode] && importCooldowns[importCode] >= Date.now()) return res.apiError(`Please wait ${tools.time(importCooldowns[importCode] - Date.now(), 1)} seconds before the next import!`, "importCooldown")
 
     let newData;
-    if (bot == "polaris") newData = await require("./commands/misc/polaris_transfer.js").run(client, guildID, importSettings, guilds)
+    if (bot == "capella") newData = await require("./commands/misc/capella_transfer.js").run(client, guildID, importSettings, guilds)
     else if (bot == "json") newData = await require("./commands/misc/json_import.js").run(client, guildID, importSettings, req.body.jsonData)
 
     if (newData && newData.error) return res.apiError(newData.error, newData.code)
@@ -843,7 +843,7 @@ function storeAuthToken(res, tokens) {
     let expiration = Date.now() + (1000 * tokens.expires_in) // when the token expires (one week)
     authDB.delete({ expires: { $lt: Date.now() } }).then(() => {}) // clear expired tokens
     authDB.create({ _id: randomID, access_token: tokens.access_token, refresh_token: tokens.refresh_token, expires: expiration }).then((data) => {
-        res.cookie("polaris", randomID, { "expires": new Date(expiration) });
+        res.cookie("capella", randomID, { "expires": new Date(expiration) });
         sendRedirect(res, "/?authorized") // sweet, back to the homepage
     }).catch((e) => { console.error(e); sendRedirect(res, "/") })
 }
@@ -870,7 +870,7 @@ async function getDiscordToken(token) {
 Now we can make requests to Discord to get the client's stuff! */
 let discordCache = {} // cache data to prevent rate limits
 async function getDiscordInfo(req, userOnly) {
-    let token = await getDiscordToken(req.cookies.polaris) // get discord's tokens using the token in their cookies
+    let token = await getDiscordToken(req.cookies.capella) // get discord's tokens using the token in their cookies
     if (!token) return userOnly ? null : [null, null]
 
     let foundData = discordCache[token] // check for cached data
@@ -892,7 +892,7 @@ async function getDiscordInfo(req, userOnly) {
 /* STEP 6
 If the client wants to log out, we should probably respect that and delete their stuff */
 app.get("/logout", async function(req, res) {
-    let token = await getDiscordToken(req.cookies.polaris)
+    let token = await getDiscordToken(req.cookies.capella)
     if (!token) return sendRedirect(res, "/")
 
     fetch(discordAPI + "oauth2/token/revoke", {
@@ -904,7 +904,7 @@ app.get("/logout", async function(req, res) {
             token
         })
     }).then(() => { // discord has invalidated the token!
-        res.clearCookie("polaris"); // remove token from cookies
+        res.clearCookie("capella"); // remove token from cookies
         sendRedirect(res, "/"); // return home
     }).catch(e => sendRedirect(res, "/"))
 })

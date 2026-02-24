@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="/css/polaris.css" type="text/css" rel="stylesheet">
-    <link rel="icon" href="/assets/polaris.svg">
-    <title>Polaris</title>
-    <meta property="og:title" content="Polaris">
+    <link href="/css/capella.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="/assets/capella.svg">
+    <title>Capella</title>
+    <meta property="og:title" content="Capella">
     <meta property="og:description" content="An open-source XP bot">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#00ff80">
@@ -45,7 +45,7 @@
     </div>
 </body>
 
-<script type="text/javascript" src="./polaris.js"></script>
+<script type="text/javascript" src="./capella.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135255146-1"></script>
 <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-135255146-1');</script>
@@ -142,7 +142,7 @@ Fetch(`./api/guilds`).then(data => {
 
 let downloading = false
 function downloadServerData(server) {
-    if (!server || !confirm(`Would you like to download all Polaris data from ${server.name}? (it can be imported into other bots)`)) return
+    if (!server || !confirm(`Would you like to download all Capella data from ${server.name}? (it can be imported into other bots)`)) return
 
     fetch(`./api/xp/${server.id}?format=everything`).then(res => {
         if (!res.ok) {

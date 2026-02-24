@@ -21,7 +21,7 @@ module.exports = {
         let importedUsers = 0
 
         let transferData = await client.db.fetch(transferFrom, toTransfer)
-        if (!transferData) return { error: `No Polaris data found for ${foundServer.name}`, code: "invalidImport" }
+        if (!transferData) return { error: `No Capella data found for ${foundServer.name}`, code: "invalidImport" }
 
         let newData = {}
 
