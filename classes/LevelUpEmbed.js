@@ -17,7 +17,7 @@ class LevelUpEmbed {
 
         }
         catch(e) {
-            console.log(e)
+            console.error(e)
             this.invalid = true
         }
 
