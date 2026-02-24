@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="/css/capella.css?v=3" type="text/css" rel="stylesheet">
-    <link rel="icon" href="/assets/capella.png">
+    <link href="../css/capella.css?v=3" type="text/css" rel="stylesheet">
+    <link rel="icon" href="..../assets/capella.png">
     <title>Capella</title>
 
     <meta property="og:title" content="Capella">
@@ -26,42 +26,42 @@
         </div>
 
         <div tabindex="0" category="xp" class="category" title="General levelling settings, such as XP per message and level scaling.">
-            <img src="/assets/categories/xp.svg">
+            <img src="../assets/categories/xp.svg">
             <p>XP gain</p>
         </div>
 
         <div tabindex="0" category="rewardroles" class="category" title="Automatically grant roles when certain levels are reached.">
-            <img src="/assets/categories/rewardroles.svg">
+            <img src="../assets/categories/rewardroles.svg">
             <p>Reward roles</p>
         </div>
 
         <div tabindex="0" category="levelup" class="category" title="Send a customizable message when a member levels up or reaches a milestone.">
-            <img src="/assets/categories/levelup.svg">
+            <img src="../assets/categories/levelup.svg">
             <p>Level up message</p>
         </div>
 
         <div tabindex="0" category="multipliers" class="category" title="Make certain roles/channels grant extra XP, or none at all.">
-            <img src="/assets/categories/multipliers.svg">
+            <img src="../assets/categories/multipliers.svg">
             <p>Multipliers</p>
         </div>
 
         <div tabindex="0" category="rankcard" class="category" title="Tweak the info and details that should be displayed on rank cards.">
-            <img src="/assets/categories/rankcard.svg">
+            <img src="../assets/categories/rankcard.svg">
             <p>Rank card</p>
         </div>
 
         <div tabindex="0" category="leaderboard" class="category" title="Toggle the server's leaderboard, or tweak privacy settings.">
-            <img src="/assets/categories/leaderboard.svg">
+            <img src="../assets/categories/leaderboard.svg">
             <p>Leaderboard</p>
         </div>
 
         <div tabindex="0" category="data" class="category" title="Import data from other bots, or download/clear existing settings.">
-            <img src="/assets/categories/data.svg">
+            <img src="../assets/categories/data.svg">
             <p>Data</p>
         </div>
 
         <div tabindex="0" category="advanced" class="category" title="Some extra advanced/experimental settings for finer customization.">
-            <img src="/assets/categories/advanced.svg">
+            <img src="../assets/categories/advanced.svg">
             <p>Advanced</p>
         </div>
     </div>
@@ -918,7 +918,7 @@
 
         $('.serverName').text(data.guild.name)
         $('.serverMembers').text(commafy(data.guild.members || "?") + " member" + (data.guild.members == 1 ? "" : "s"))
-        $('.serverIcon').attr('src', data.guild.icon || "/assets/avatar.png")
+        $('.serverIcon').attr('src', data.guild.icon || "../assets/avatar.png")
         $('#otherServers').append(data.ownedServers.map(x => `<option value="${x.id}">${x.name}</option>`))
         
         // fill in inputs with current values

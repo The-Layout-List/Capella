@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="/css/capella.css?v=1" type="text/css" rel="stylesheet">
-    <link rel="icon" href="/assets/capella.png">
+    <link href="../css/capella.css?v=1" type="text/css" rel="stylesheet">
+    <link rel="icon" href="../assets/capella.png">
     <title>Leaderboard</title>
 
     <meta property="og:title" content="Capella">
@@ -142,7 +142,7 @@
                 <div class="xpOverlay">
                     <p><span lb="xp"></span><span lb="percent" style="font-weight: normal; margin-left: 10px; font-size: 16px"></span></p>
                     <p lb="multiplier" style="display: none"></p>
-                    <img src="/assets/icons/pencil.svg" class="editIcon">
+                    <img src="../assets/icons/pencil.svg" class="editIcon">
                 </div>
             </div>
         </div>
@@ -405,7 +405,7 @@ Fetch(`/api/leaderboard/${guildID}`).then(data => {
             userSlot.find("[lb=rank]").text("#" + commafy(x.rank)).css("font-size", x.rank > 999 ? "18px" : x.rank > 99 ? "20px" : "22px")
             userSlot.find("[lb=name]").text(x.nickname || x.displayName || `<@${x.id}>`).attr("title", x.missing ? "Not in server!" : `${x.displayName} (@${x.username})`)
             userSlot.find("[lb=level]").text(`Level ${commafy(userXP.level)}`)
-            userSlot.find("[lb=pfp]").attr("src", x.avatar || "/assets/avatar.png")
+            userSlot.find("[lb=pfp]").attr("src", x.avatar || "../assets/avatar.png")
             userSlot.find("[lb=progress]").css("background-color", x.missing ? "rgba(118, 126, 137, 0.5)" : roleCol(x.color || "white")).css("width", userXP.percentage + "%")
             userSlot.find("[lb=xp]").html(`${commafy(x.xp)} / ${commafy(userXP.xpRequired)} XP${data.settings.rankCard.relativeLevel ? ` &nbsp • &nbsp; ${commafy(x.xp - userXP.previousLevel)} / ${commafy(userXP.xpRequired - userXP.previousLevel)}` : ""}`)
             userSlot.find("[lb=percent]").text(`(${+userXP.percentage.toFixed(2)}%)`)
