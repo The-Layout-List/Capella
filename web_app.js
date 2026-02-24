@@ -88,10 +88,11 @@ function clearDeletedData(settings, roles, channels) {
 
     return settings
 }
+app.
 
-app.use("/assets", express.static(__dirname + '/app/assets'));
-app.use("/css", express.static(__dirname + '/app/css'));
-app.use("/capella.js", express.static(__dirname + '/app/js/extras.js'));
+app.use("/capella/assets", express.static(__dirname + '/app/assets'));
+app.use("/capella/css", express.static(__dirname + '/app/css'));
+app.use("/capella/capella.js", express.static(__dirname + '/app/js/extras.js'));
 
 app.use(function(req, res, next) {
     res.apiError = function(message, code) {
