@@ -2,3 +2,5 @@ node_modules
 json/auto
 .env
 .vscode
+
+.DS_Store
